@@ -1,6 +1,7 @@
 package br.com.dld.aula1.models.entities;
 
 import br.com.dld.aula1.models.enums.UN;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,15 +22,32 @@ public class Product implements Serializable {
     private String name;
 
     @Column(length = 15, nullable = false)
-    @Enumerated(EnumType.STRING)
-    private UN unity;
+    private String unity;
 
-    @Column(columnDefinition = "float default 0")
-    private Float preco;
+    @Column(length = 15, nullable = false)
+    private Integer amount;
 
-    @Column(columnDefinition = "0")
-    private int quantidade;
+    @Column(length = 15, nullable = false)
+    private Double price;
 
-    //public void removerQuantidade(int quantidade) {
-    // }
+    @ManyToOne
+    @JoinColumn(name = "categoryId")
+    private Category category;
+
+    public Product(){
+
+    }
+
+    public Product(Long id, String name, String unity, Integer amount, Double price, Category category) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.unity = unity;
+        this.amount = amount;
+        this.price = price;
+        this.category = category;
+    }
+
+
+
 }
