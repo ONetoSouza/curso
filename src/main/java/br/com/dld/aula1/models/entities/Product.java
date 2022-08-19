@@ -38,7 +38,8 @@ public class Product implements Serializable {
 
     }
 
-    public Product(Long id, String name, String unity, Integer amount, Double price, Category category) {
+    public Product(Long id, String name, String unity, Integer amount,
+                   Double price, Category category) {
         super();
         this.id = id;
         this.name = name;
@@ -47,7 +48,4 @@ public class Product implements Serializable {
         this.price = price;
         this.category = category;
     }
-
-
-
 }

@@ -40,7 +40,7 @@ public class ProductController {
     private ResponseEntity<?> save(@RequestBody ProductForm form) {
         Product product = productService.save(form.convert());
 
-        return  ResponseEntity.ok(product);
+        return ResponseEntity.ok(product);
     }
 
     @PutMapping
